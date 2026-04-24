@@ -1,66 +1,509 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Yash Raj Sharma | Portfolio</title>
-  <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Yash Raj Sharma | ECE Student</title>
+  <link rel="stylesheet" href="styles.css" />
+  <!-- Google Fonts: Share Tech Mono (display) + DM Sans (body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=DM+Sans:wght@300;400;500;600&family=Orbitron:wght@700;900&display=swap" rel="stylesheet" />
+  <!-- Phosphor Icons -->
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
 </head>
 <body>
 
-<header>
-  <nav>
-    <h2>Yash Raj Sharma</h2>
-    <ul>
-      <li><a href="#about">About</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
+  <!-- ░░░ CANVAS BACKGROUND (particles) ░░░ -->
+  <canvas id="bg-canvas"></canvas>
+
+  <!-- ░░░ CURSOR GLOW ░░░ -->
+  <div id="cursor-glow"></div>
+
+  <!-- ============================
+       NAVBAR
+  ============================= -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="#hero" class="nav-logo">
+        <span class="logo-bracket">[</span>YRS<span class="logo-bracket">]</span>
+      </a>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#about"    class="nav-link">About</a></li>
+        <li><a href="#skills"   class="nav-link">Skills</a></li>
+        <li><a href="#projects" class="nav-link">Projects</a></li>
+        <li><a href="#contact"  class="nav-link">Contact</a></li>
+        <li>
+          <a href="#" class="nav-cta" id="resume-btn">
+            <i class="ph ph-download-simple"></i> Resume
+          </a>
+        </li>
+      </ul>
+    </div>
   </nav>
-</header>
 
-<section class="hero">
-  <h1>Hello, I'm Yash</h1>
-  <p>Electronics & Communication Engineer | AI & Tech Enthusiast</p>
-</section>
+  <!-- ============================
+       HERO
+  ============================= -->
+  <section id="hero">
+    <div class="hero-inner">
+      <!-- circuit decoration -->
+      <div class="circuit-line cl-1"></div>
+      <div class="circuit-line cl-2"></div>
 
-<section id="about">
-  <h2>About Me</h2>
-  <p>I am an Electronics and Communication Engineering student with strong foundations in Physics and Mathematics. I am passionate about Artificial Intelligence, Machine Learning, Cloud Computing, and Quantum Computing.</p>
-</section>
+      <div class="hero-badge reveal-up">
+        <span class="badge-dot"></span>
+        <span>Currently exploring Quantum Computing</span>
+      </div>
 
-<section id="skills">
-  <h2>Skills</h2>
-  <div class="skill-list">
-    <span>Python</span>
-    <span>Arduino</span>
-    <span>Raspberry Pi</span>
-    <span>Cloud Computing</span>
-    <span>AI & ML</span>
-    <span>Quantum Computing</span>
-  </div>
-</section>
+      <h1 class="hero-name reveal-up">
+        <span class="name-line">Yash Raj</span>
+        <span class="name-line accent">Sharma</span>
+      </h1>
 
-<section id="projects">
-  <h2>Projects</h2>
-  <div class="project">
-    <h3>Sea Level Predictor</h3>
-    <p>Analyzed climate datasets and predicted sea level rise using MATLAB.</p>
-  </div>
-</section>
+      <p class="hero-title reveal-up">
+        <span id="typing-text"></span><span class="cursor-blink">|</span>
+      </p>
 
-<section id="contact">
-  <h2>Contact</h2>
-  <p>Email: yashrajeceaiiot048@gmail.com</p>
-  <button onclick="sendMessage()">Say Hello</button>
-</section>
+      <p class="hero-intro reveal-up">
+        Passionate about <span class="hl">Physics</span>, <span class="hl">Mathematics</span>,
+        and the technologies shaping tomorrow's world — from quantum gates to neural networks.
+      </p>
 
-<footer>
-  <p>© 2026 Yash Raj Sharma</p>
-</footer>
+      <div class="hero-actions reveal-up">
+        <a href="#projects" class="btn btn-primary">
+          <i class="ph ph-folder-open"></i> View Projects
+        </a>
+        <a href="#contact" class="btn btn-ghost">
+          <i class="ph ph-paper-plane-tilt"></i> Contact Me
+        </a>
+      </div>
 
-<script src="script.js"></script>
+      <!-- stat chips -->
+      <div class="hero-stats reveal-up">
+        <div class="stat-chip">
+          <span class="stat-value">ECE</span>
+          <span class="stat-label">Stream</span>
+        </div>
+        <div class="stat-sep">—</div>
+        <div class="stat-chip">
+          <span class="stat-value">AI/ML</span>
+          <span class="stat-label">Focus</span>
+        </div>
+        <div class="stat-sep">—</div>
+        <div class="stat-chip">
+          <span class="stat-value">QC</span>
+          <span class="stat-label">Enthusiast</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- scroll indicator -->
+    <a href="#about" class="scroll-hint">
+      <span class="scroll-label">Scroll</span>
+      <i class="ph ph-arrow-down"></i>
+    </a>
+  </section>
+
+  <!-- ============================
+       ABOUT
+  ============================= -->
+  <section id="about">
+    <div class="section-inner">
+      <div class="section-tag reveal-up">// about_me</div>
+      <h2 class="section-title reveal-up">Wired to Learn.<br/>Built to Build.</h2>
+
+      <div class="about-grid">
+        <!-- avatar / visual -->
+        <div class="about-visual reveal-left">
+          <div class="avatar-frame">
+            <div class="avatar-ring r1"></div>
+            <div class="avatar-ring r2"></div>
+            <div class="avatar-ring r3"></div>
+            <div class="avatar-core">
+              <span class="avatar-initials">YRS</span>
+              <!-- tiny circuit nodes -->
+              <div class="node n1"></div>
+              <div class="node n2"></div>
+              <div class="node n3"></div>
+              <div class="node n4"></div>
+            </div>
+          </div>
+          <div class="about-card-info">
+            <div class="info-row">
+              <i class="ph ph-buildings"></i>
+              <span>Manav Rachna IIRS</span>
+            </div>
+            <div class="info-row">
+              <i class="ph ph-graduation-cap"></i>
+              <span>Electronics & Communication Engg.</span>
+            </div>
+            <div class="info-row">
+              <i class="ph ph-map-pin"></i>
+              <span>Faridabad, Haryana, India</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- text -->
+        <div class="about-text reveal-right">
+          <p>
+            Hey! I'm <strong>Yash Raj Sharma</strong>, an ECE student with a deep love for the
+            fundamental sciences that underpin modern technology. My journey started with a
+            fascination for how electrons behave — and grew into a passion for building
+            intelligent systems and exploring the frontier of <span class="hl">quantum information</span>.
+          </p>
+          <p>
+            I hold a strong foundation in <span class="hl">Physics and Mathematics</span>,
+            which gives me a unique analytical lens when approaching engineering challenges.
+            Whether it's programming microcontrollers, training ML models, or diving into
+            quantum circuit theory — I love bridging theory with practice.
+          </p>
+          <p>
+            Outside academics, I'm constantly experimenting with <span class="hl">Arduino</span>
+            projects, building Python scripts, and staying current with AI research. I believe
+            the next decade belongs to those who can operate at the intersection of
+            hardware, software, and quantum physics.
+          </p>
+
+          <div class="interest-tags">
+            <span class="tag">⚛️ Quantum Computing</span>
+            <span class="tag">🤖 Artificial Intelligence</span>
+            <span class="tag">🧠 Machine Learning</span>
+            <span class="tag">☁️ Cloud Computing</span>
+            <span class="tag">🔬 Physics</span>
+            <span class="tag">🧮 Mathematics</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================
+       SKILLS
+  ============================= -->
+  <section id="skills">
+    <div class="section-inner">
+      <div class="section-tag reveal-up">// skill_matrix</div>
+      <h2 class="section-title reveal-up">Tools of the Trade</h2>
+
+      <div class="skills-grid">
+
+        <!-- Programming -->
+        <div class="skill-category reveal-up" data-delay="0">
+          <div class="cat-header">
+            <i class="ph ph-code"></i>
+            <h3>Programming</h3>
+          </div>
+          <div class="skill-bar-wrap">
+            <div class="skill-bar-row">
+              <span>Python</span>
+              <div class="bar-track"><div class="bar-fill" data-pct="85"></div></div>
+              <span class="pct-label">85%</span>
+            </div>
+            <div class="skill-bar-row">
+              <span>C / C++</span>
+              <div class="bar-track"><div class="bar-fill" data-pct="65"></div></div>
+              <span class="pct-label">65%</span>
+            </div>
+            <div class="skill-bar-row">
+              <span>MATLAB</span>
+              <div class="bar-track"><div class="bar-fill" data-pct="55"></div></div>
+              <span class="pct-label">55%</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hardware -->
+        <div class="skill-category reveal-up" data-delay="100">
+          <div class="cat-header">
+            <i class="ph ph-cpu"></i>
+            <h3>Hardware & Embedded</h3>
+          </div>
+          <div class="skill-bar-wrap">
+            <div class="skill-bar-row">
+              <span>Arduino</span>
+              <div class="bar-track"><div class="bar-fill" data-pct="80"></div></div>
+              <span class="pct-label">80%</span>
+            </div>
+            <div class="skill-bar-row">
+              <span>Raspberry Pi</span>
+              <div class="bar-track"><div class="bar-fill" data-pct="70"></div></div>
+              <span class="pct-label">70%</span>
+            </div>
+            <div class="skill-bar-row">
+              <span>Circuit Design</span>
+              <div class="bar-track"><div class="bar-fill" data-pct="60"></div></div>
+              <span class="pct-label">60%</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Emerging Tech -->
+        <div class="skill-category reveal-up" data-delay="200">
+          <div class="cat-header">
+            <i class="ph ph-atom"></i>
+            <h3>Emerging Technologies</h3>
+          </div>
+          <div class="skill-bar-wrap">
+            <div class="skill-bar-row">
+              <span>AI / Machine Learning</span>
+              <div class="bar-track"><div class="bar-fill" data-pct="72"></div></div>
+              <span class="pct-label">72%</span>
+            </div>
+            <div class="skill-bar-row">
+              <span>Cloud Computing</span>
+              <div class="bar-track"><div class="bar-fill" data-pct="60"></div></div>
+              <span class="pct-label">60%</span>
+            </div>
+            <div class="skill-bar-row">
+              <span>Quantum Computing</span>
+              <div class="bar-track"><div class="bar-fill" data-pct="45"></div></div>
+              <span class="pct-label">45%</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tool cards row -->
+        <div class="tool-cards reveal-up" data-delay="50">
+          <div class="tool-card">
+            <i class="ph ph-git-branch"></i>
+            <span>Git & GitHub</span>
+          </div>
+          <div class="tool-card">
+            <i class="ph ph-linux-logo"></i>
+            <span>Linux</span>
+          </div>
+          <div class="tool-card">
+            <i class="ph ph-flask"></i>
+            <span>Jupyter</span>
+          </div>
+          <div class="tool-card">
+            <i class="ph ph-cloud"></i>
+            <span>AWS Basics</span>
+          </div>
+          <div class="tool-card">
+            <i class="ph ph-brackets-curly"></i>
+            <span>TensorFlow</span>
+          </div>
+          <div class="tool-card">
+            <i class="ph ph-waves"></i>
+            <span>Qiskit</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================
+       PROJECTS
+  ============================= -->
+  <section id="projects">
+    <div class="section-inner">
+      <div class="section-tag reveal-up">// projects[]</div>
+      <h2 class="section-title reveal-up">What I've Built</h2>
+
+      <div class="projects-grid">
+
+        <div class="project-card reveal-up" data-delay="0">
+          <div class="project-glow"></div>
+          <div class="project-num">01</div>
+          <h3>Smart Home Automation</h3>
+          <p>IoT-based home automation system using Raspberry Pi and Arduino, with voice control integration and a mobile dashboard for real-time monitoring.</p>
+          <div class="project-stack">
+            <span>Python</span><span>Raspberry Pi</span><span>MQTT</span>
+          </div>
+          <div class="project-actions">
+            <a href="#" class="project-btn"><i class="ph ph-github-logo"></i> GitHub</a>
+            <a href="#" class="project-btn project-btn-demo"><i class="ph ph-arrow-square-out"></i> Demo</a>
+          </div>
+        </div>
+
+        <div class="project-card reveal-up" data-delay="80">
+          <div class="project-glow"></div>
+          <div class="project-num">02</div>
+          <h3>Quantum Circuit Simulator</h3>
+          <p>A Python-based educational simulator for basic quantum gates and circuits using Qiskit. Visualises qubit states and entanglement on the Bloch sphere.</p>
+          <div class="project-stack">
+            <span>Python</span><span>Qiskit</span><span>NumPy</span>
+          </div>
+          <div class="project-actions">
+            <a href="#" class="project-btn"><i class="ph ph-github-logo"></i> GitHub</a>
+            <a href="#" class="project-btn project-btn-demo"><i class="ph ph-arrow-square-out"></i> Demo</a>
+          </div>
+        </div>
+
+        <div class="project-card reveal-up" data-delay="160">
+          <div class="project-glow"></div>
+          <div class="project-num">03</div>
+          <h3>ML Gesture Controller</h3>
+          <p>Real-time hand gesture recognition using OpenCV and a trained CNN model, enabling touchless control of a computer interface via a webcam feed.</p>
+          <div class="project-stack">
+            <span>Python</span><span>OpenCV</span><span>TensorFlow</span>
+          </div>
+          <div class="project-actions">
+            <a href="#" class="project-btn"><i class="ph ph-github-logo"></i> GitHub</a>
+            <a href="#" class="project-btn project-btn-demo"><i class="ph ph-arrow-square-out"></i> Demo</a>
+          </div>
+        </div>
+
+        <div class="project-card reveal-up" data-delay="0">
+          <div class="project-glow"></div>
+          <div class="project-num">04</div>
+          <h3>Weather Station (IoT)</h3>
+          <p>Arduino-powered weather station with DHT22 and BMP280 sensors, pushing live data to a cloud dashboard and triggering alerts via SMS and email.</p>
+          <div class="project-stack">
+            <span>Arduino</span><span>C++</span><span>Cloud IoT</span>
+          </div>
+          <div class="project-actions">
+            <a href="#" class="project-btn"><i class="ph ph-github-logo"></i> GitHub</a>
+            <a href="#" class="project-btn project-btn-demo"><i class="ph ph-arrow-square-out"></i> Demo</a>
+          </div>
+        </div>
+
+        <div class="project-card reveal-up" data-delay="80">
+          <div class="project-glow"></div>
+          <div class="project-num">05</div>
+          <h3>Physics Equation Solver</h3>
+          <p>A CLI + web tool built in Python that symbolically solves common Physics and Math equations, plots results, and provides step-by-step solutions.</p>
+          <div class="project-stack">
+            <span>Python</span><span>SymPy</span><span>Matplotlib</span>
+          </div>
+          <div class="project-actions">
+            <a href="#" class="project-btn"><i class="ph ph-github-logo"></i> GitHub</a>
+            <a href="#" class="project-btn project-btn-demo"><i class="ph ph-arrow-square-out"></i> Demo</a>
+          </div>
+        </div>
+
+        <div class="project-card reveal-up" data-delay="160">
+          <div class="project-glow"></div>
+          <div class="project-num">06</div>
+          <h3>AI Study Assistant</h3>
+          <p>Cloud-hosted LLM-powered study assistant fine-tuned on ECE syllabus material. Generates quizzes, explains concepts, and tracks student progress.</p>
+          <div class="project-stack">
+            <span>Python</span><span>LangChain</span><span>AWS Lambda</span>
+          </div>
+          <div class="project-actions">
+            <a href="#" class="project-btn"><i class="ph ph-github-logo"></i> GitHub</a>
+            <a href="#" class="project-btn project-btn-demo"><i class="ph ph-arrow-square-out"></i> Demo</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================
+       CONTACT
+  ============================= -->
+  <section id="contact">
+    <div class="section-inner">
+      <div class="section-tag reveal-up">// send_signal()</div>
+      <h2 class="section-title reveal-up">Let's Connect</h2>
+
+      <div class="contact-grid">
+
+        <!-- Info panel -->
+        <div class="contact-info reveal-left">
+          <p class="contact-subhead">
+            Whether you want to collaborate on a project, chat about quantum physics,
+            or just say hello — my inbox is open.
+          </p>
+
+          <div class="contact-detail">
+            <div class="contact-icon"><i class="ph ph-envelope"></i></div>
+            <div>
+              <div class="contact-label">Email</div>
+              <a href="mailto:yashrajeceaiiot048@gmail.com" class="contact-value">
+                yashrajeceaiiot048@gmail.com
+              </a>
+            </div>
+          </div>
+
+          <div class="contact-detail">
+            <div class="contact-icon"><i class="ph ph-map-pin"></i></div>
+            <div>
+              <div class="contact-label">Location</div>
+              <span class="contact-value">Haryana, India</span>
+            </div>
+          </div>
+
+          <div class="social-links">
+            <a href="#" class="social-btn" aria-label="GitHub">
+              <i class="ph ph-github-logo"></i>
+              <span>GitHub</span>
+            </a>
+            <a href="#" class="social-btn" aria-label="LinkedIn">
+              <i class="ph ph-linkedin-logo"></i>
+              <span>LinkedIn</span>
+            </a>
+            <a href="mailto:yashrajeceaiiot048@gmail.com" class="social-btn" aria-label="Email">
+              <i class="ph ph-envelope-simple"></i>
+              <span>Email</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Contact form -->
+        <div class="contact-form-wrap reveal-right">
+          <form id="contact-form" novalidate>
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" id="name" placeholder="Ada Lovelace" autocomplete="name" />
+              <span class="form-error" id="name-error"></span>
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" placeholder="ada@example.com" autocomplete="email" />
+              <span class="form-error" id="email-error"></span>
+            </div>
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" rows="5" placeholder="Tell me about your idea…"></textarea>
+              <span class="form-error" id="message-error"></span>
+            </div>
+            <button type="submit" class="btn btn-primary btn-full" id="send-btn">
+              <i class="ph ph-paper-plane-tilt"></i>
+              <span>Send Message</span>
+            </button>
+            <div id="form-success" class="form-success" style="display:none;">
+              <i class="ph ph-check-circle"></i>
+              Message received! I'll get back to you soon.
+            </div>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================
+       FOOTER
+  ============================= -->
+  <footer id="footer">
+    <div class="footer-inner">
+      <div class="footer-logo">
+        <span class="logo-bracket">[</span>YRS<span class="logo-bracket">]</span>
+      </div>
+      <p class="footer-tagline">
+        Building at the intersection of electrons, algorithms & quantum states.
+      </p>
+      <nav class="footer-nav">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <p class="footer-copy">
+        &copy; <span id="year"></span> Yash Raj Sharma &mdash; All rights reserved.
+      </p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
