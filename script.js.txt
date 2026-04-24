@@ -1,0 +1,4 @@
+// script.js
+function sendMessage() {
+  alert("Thanks for reaching out, Yash will contact you soon!");
+}
